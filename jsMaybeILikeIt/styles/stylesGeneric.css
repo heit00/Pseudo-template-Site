@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ELEMENTOS-conflitc (colocar id/classe)*/
+
+html{
+    --text-color: white;
+    --header-background-color: black;
+    --li-after-background-color: white;
+    --body-background-color: rgb(32, 32, 32);
+    --footer-background-color: rgb(63, 63, 63);
+    --slider-text-color: white;
+    --glassmorphism-color-1: rgba(0, 0, 0, 0.44);
+    --glassmorphism-color-2: rgba(255, 255, 255, 0.125);
+}
+
+.light{
+    --text-color: black;
+    --header-background-color: white;
+    --li-after-background-color: black;
+    --body-background-color: rgb(216, 216, 216);
+    --footer-background-color: rgb(197, 197, 197);
+    --slider-text-color: white;
+    --glassmorphism-color-1: rgba(71, 74, 79, 0.36);
+    --glassmorphism-color-2: rgba(255, 255, 255, 0.125);
+}
+
+html{
+    max-height: 100dvh;
+    max-width: 100dvw;
+    overflow: hidden;
+}
+
+body{
+    user-select: none;
+    max-width: 100dvw;
+    height: 100dvh;
+    max-height: 100dvh;
+    width: 100dvw;
+    overflow: hidden;
+    background-color: var(--body-background-color);
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial';
+    transition: 0.5s;
+}
+
+    /* HEADER */
+header{
+    width: 100%;
+    height: clamp(70px, 5vh, 100px);
+    padding-top: 10px;
+    background-color: var(--header-bakcground-color);
+    transition: 0.5s;
+}
+
+nav, nav ul{
+    width: 100%;
+    height: clamp(55px, 5vh, 75px);
+}
+
+nav ul{ 
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul:hover > li{
+    filter: blur(5px);
+    opacity: 0.5;
+}
+
+nav li{
+    transform: scale(1);
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: all 0.5s;
+    will-change: transform;
+}
+
+nav li::after{
+    align-self: center;
+    content: '';
+    height: 1px;
+    opacity: 0;
+    width: 0;
+    background-color: var(--li-after-background-color);
+    transition: all 0.5s;
+}
+
+nav li:not(#li-button):hover::after{
+    opacity: 1;
+    width: 100%;
+}
+
+nav ul > li:not(#li-button):hover{
+    transform: scale(1.4);
+    filter: blur(0);
+    opacity: 1;
+}
+
+#li-button > button{
+    z-index: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--text-color);
+    transition: 0.5s;
+}
+
+#li-button > button::after{
+    z-index: -1;
+    position: absolute;
+    align-self: center;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+#li-button:hover > button::after{
+    background-color: var(--li-after-background-color);
+    height: 100%;
+}
+
+#li-button:hover{
+    filter: blur(0);
+    opacity: 1;
+}
+
+#li-button:hover > button{
+    color: var(--header-background-color);
+}
+
+nav .nav-a, nav .nav-a > span:hover{
+    all: unset;
+    display: inline; /* ou block/flex conforme o layout */
+    color: var(--text-color);
+    user-select: none;
+    cursor: pointer;
+}
+
+nav .nav-a:hover, nav .nav-a:active, .nav-a::before{
+    user-select: none;
+}
+
+nav li > button{
+    border: none;
+    padding: 10px;
+    transform: scale(1.2);
+    background: none;
+    
+}
+    /* e. */
+    /* MAIN */
+main{
+    height: 100%;
+    width: 100%;
+}
+
+        /* e. */
+    /* e. */
+    /* FOOTER */
+footer{
+    
+    min-height: 35px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: var(--footer-background-color);
+    transition: 0.5s;
+}
+    /* e. */
+
+/* e. */
+
+
+
+
+
+
+
+
